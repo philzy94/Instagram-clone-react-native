@@ -9,11 +9,18 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
+    "email-validator": "^2.0.4",
     "expo": "~48.0.15",
     "expo-status-bar": "~1.4.4",
+    "firebase": "^9.22.0",
+    "formik": "^2.2.9",
     "react": "18.2.0",
     "react-native": "0.71.7",
-    "react-native-elements": "^3.4.3"
+    "react-native-elements": "^3.4.3",
+    "react-native-gesture-handler": "^2.10.1",
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

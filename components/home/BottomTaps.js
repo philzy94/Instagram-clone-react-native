@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { Image } from "react-native";
@@ -50,7 +50,13 @@ const BottomTaps = ({ icons }) => {
           source={{
             uri: activeTap == icon.name ? icon.active : icon.inactive,
           }}
-          style={styles.icon}
+          style={[
+            styles.icon,
+            icon.name == "Profile" ? styles.profilePic() : null,
+            activeTap == "Profile" && activeTap == icon.name
+              ? styles.profilePic(activeTap)
+              : null,
+          ]}
         />
       </TouchableOpacity>
     );
@@ -70,7 +76,13 @@ const BottomTaps = ({ icons }) => {
 export default BottomTaps;
 
 const styles = StyleSheet.create({
-  wrapper: {},
+  wrapper: {
+    position: "absolute",
+    width: "100%",
+    bottom: "0%",
+    zIndex: 999,
+    backgroundColor: "#000",
+  },
   icon: {
     width: 30,
     height: 30,
@@ -81,4 +93,9 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     height: 50,
   },
+  profilePic: (activeTap = "") => ({
+    borderRadius: 50,
+    borderWidth: activeTap == "Profile" ? 2 : 0,
+    borderColor: "#fff",
+  }),
 });

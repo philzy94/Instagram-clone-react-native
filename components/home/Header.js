@@ -2,18 +2,33 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Image } from "react-native";
 import { TouchableOpacity } from "react-native";
+import { getAuth, signOut } from "firebase/auth";
 
-const Header = () => {
+const Header = ({ navigation }) => {
+  //console.log(navigation);
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          const auth = getAuth();
+          signOut(auth)
+            .then(() => {
+              console.log("logOut");
+            })
+            .catch((error) => {});
+        }}
+      >
         <Image
           style={styles.logo}
           source={require("../../assets/header-logo.png")}
         />
       </TouchableOpacity>
       <View style={styles.iconsContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.push("NewPostScreen");
+          }}
+        >
           <Image
             style={styles.icon}
             source={{

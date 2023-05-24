@@ -8,10 +8,10 @@ import { ScrollView } from "react-native";
 import { POSTS } from "../data/posts";
 import BottomTaps, { bottomTabIcons } from "../components/home/BottomTaps";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <Header />
+      <Header navigation={navigation} />
       <Stories />
       <ScrollView>
         {POSTS.map((post, index) => {
